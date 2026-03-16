@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game List Cloud</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🎮 Game List Cloud</h1>
+      <p>Gestiona tus videojuegos de forma sencilla y ordenada</p>
+    </header>
+
+    <section class="box">
+      <h2 id="form-title">Agregar videojuego</h2>
+
+      <form id="game-form">
+        <input type="hidden" id="game-id" />
+
+        <div class="grid">
+          <div>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" placeholder="Ej: Fortnite" required />
+          </div>
+
+          <div>
+            <label for="plataforma">Plataforma</label>
+            <input type="text" id="plataforma" placeholder="Ej: PC, PS5" required />
+          </div>
+
+          <div>
+            <label for="anio">Año</label>
+            <input type="number" id="anio" min="1950" placeholder="Ej: 2024" required />
+          </div>
+
+          <div>
+            <label for="categoriaId">Categoría</label>
+            <select id="categoriaId" required>
+              <option value="">Selecciona una categoría</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" class="btn">Guardar</button>
+          <button type="button" class="btn btn-gray" id="cancel-btn">Cancelar</button>
+        </div>
+      </form>
+
+      <p id="message"></p>
+    </section>
+
+    <section class="box">
+      <div class="top-row">
+        <h2>Lista de videojuegos</h2>
+
+        <div class="tools">
+          <input type="text" id="search-input" placeholder="Buscar por título o plataforma..." />
+          <select id="filter-category">
+            <option value="">Todas las categorías</option>
+          </select>
+          <button class="btn btn-gray" id="reload-btn">Recargar</button>
+        </div>
+      </div>
+
+      <div id="games-list" class="games-list"></div>
+    </section>
+
+    <section class="box">
+      <h2>Detalle del videojuego</h2>
+      <div id="game-detail" class="detail-box">
+        Selecciona un videojuego para ver su información.
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
