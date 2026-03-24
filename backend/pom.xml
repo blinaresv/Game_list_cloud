@@ -5,7 +5,6 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<!-- 🔥 CAMBIO IMPORTANTE: usar versión estable -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -53,7 +52,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- 🔥 CLAVE: Cloud SQL -->
+		<!-- 🔥 Cloud SQL -->
 		<dependency>
 			<groupId>com.google.cloud.sql</groupId>
 			<artifactId>postgres-socket-factory</artifactId>
@@ -86,18 +85,10 @@
 	<build>
 		<plugins>
 
-			<!-- COMPILADOR -->
+			<!-- 🔥 COMPILADOR (CORREGIDO SIN annotationProcessorPaths) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
 			</plugin>
 
 			<!-- SPRING BOOT -->
