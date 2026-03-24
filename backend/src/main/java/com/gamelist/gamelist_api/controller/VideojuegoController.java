@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/videojuegos")
-@CrossOrigin(origins = "*")
+@CrossOrigin
 public class VideojuegoController {
 
     private final VideojuegoService videojuegoService;
@@ -18,32 +18,22 @@ public class VideojuegoController {
     }
 
     @GetMapping
-    public List<Videojuego> listarVideojuegos() {
+    public List<Videojuego> listar() {
         return videojuegoService.listarVideojuegos();
     }
 
-    @GetMapping("/{id}")
-    public Videojuego obtenerVideojuego(@PathVariable Long id) {
-        return videojuegoService.obtenerVideojuegoPorId(id);
-    }
-
-    @GetMapping("/categoria/{categoriaId}")
-    public List<Videojuego> obtenerPorCategoria(@PathVariable Long categoriaId) {
-        return videojuegoService.obtenerVideojuegosPorCategoria(categoriaId);
-    }
-
     @PostMapping
-    public Videojuego crearVideojuego(@RequestBody Videojuego videojuego) {
+    public Videojuego crear(@RequestBody Videojuego videojuego) {
         return videojuegoService.crearVideojuego(videojuego);
     }
 
     @PutMapping("/{id}")
-    public Videojuego actualizarVideojuego(@PathVariable Long id, @RequestBody Videojuego videojuego) {
+    public Videojuego actualizar(@PathVariable Long id, @RequestBody Videojuego videojuego) {
         return videojuegoService.actualizarVideojuego(id, videojuego);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarVideojuego(@PathVariable Long id) {
+    public void eliminar(@PathVariable Long id) {
         videojuegoService.eliminarVideojuego(id);
     }
 }
