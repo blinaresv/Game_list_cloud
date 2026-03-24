@@ -18,7 +18,11 @@ steps:
 
   # 3. Push
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '--all-tags', 'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api']
+    args: [
+      'push',
+      '--all-tags',
+      'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api'
+    ]
 
   # 4. Deploy
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -33,6 +37,10 @@ steps:
         '--region=us-central1',
         '--quiet'
       ]
+
+# 👇 ESTA ES LA LÍNEA QUE TE FALTABA (CLAVE)
+options:
+  logging: CLOUD_LOGGING_ONLY
 
 images:
 - 'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api'
