@@ -1,4 +1,5 @@
-const API_URL = "https://game-list-api-rjqftd4irq-uc.a.run.app/";
+const API_URL = "https://game-list-api-rjqftd4irq-uc.a.run.app"; // 🔥 SIN / al final
+
 let videojuegos = [];
 let categorias = [];
 let editandoId = null;
@@ -37,7 +38,7 @@ function renderizar() {
       <div class="game-card">
         <h3>${j.titulo}</h3>
         <p>${j.plataforma} - ${j.anio}</p>
-        <p>${j.categoria?.nombre}</p>
+        <p>${j.categoria?.nombre || ''}</p>
 
         <span class="estado ${j.estado}">${j.estado}</span>
 
@@ -109,6 +110,6 @@ function ver(id) {
     ${j.plataforma}<br>
     ${j.anio}<br>
     ${j.estado}<br>
-    ${j.categoria?.nombre}
+    ${j.categoria?.nombre || ''}
   `;
 }
