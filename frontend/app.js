@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:8080";
-
+const API_URL = "https://game-list-api-rjqftd4irq-uc.a.run.app/";
 let videojuegos = [];
 let categorias = [];
 let editandoId = null;
