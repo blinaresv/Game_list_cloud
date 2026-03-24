@@ -1,0 +1,38 @@
+steps:
+  # 1. Compilar el proyecto (genera el .jar)
+  - name: 'maven:3.9.6-eclipse-temurin-21'
+    entrypoint: mvn
+    args: ['clean', 'package', '-DskipTests']
+    dir: 'backend'
+
+  # 2. Construir la imagen Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t',
+      'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api:$COMMIT_SHA',
+      '-t',
+      'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api:latest',
+      'backend'
+    ]
+
+  # 3. Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '--all-tags', 'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api']
+
+  # 4. Deploy
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'run',
+        'services',
+        'update',
+        'game-list-api',
+        '--image=us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api:$COMMIT_SHA',
+        '--region=us-central1',
+        '--quiet'
+      ]
+
+images:
+- 'us-central1-docker.pkg.dev/game-list-cloud/cloud-run-source-deploy/blinaresv-game_list_cloud/game-list-api'
