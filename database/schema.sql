@@ -8,6 +8,7 @@ CREATE TABLE videojuego (
     titulo VARCHAR(255) NOT NULL,
     plataforma VARCHAR(100),
     anio INTEGER NOT NULL,
+    estado VARCHAR(50) NOT NULL,
     categoria_id INTEGER,
     CONSTRAINT fk_categoria
         FOREIGN KEY (categoria_id)
