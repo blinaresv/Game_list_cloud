@@ -6,13 +6,15 @@
 
 ## 1. Introducción y Contexto del Proyecto
 
-En la actualidad, la fragmentación de plataformas de videojuegos (PC, consolas y dispositivos móviles) genera la necesidad de centralizar la información en un único sistema accesible desde cualquier lugar.
+# 1. Introducción y Contexto del Proyecto
 
-**Game List Cloud** surge como una solución basada en computación en la nube que permite gestionar un catálogo de videojuegos de manera persistente, segura y escalable.
+En la actualidad, la cantidad de videojuegos en diferentes plataformas PC, Consolas y celulares hace que sea necesario centralizar la información en un único sistema, desde cualquier lugar.
 
-El sistema permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una base de datos relacional, asegurando la integridad de la información y la disponibilidad del servicio.
+**Game List Cloud** es un sistema de videojuegos basado en computación en la nube que permite la gestión de un catálogo de videojuegos de manera persistente, segura, y escalable.
 
-A diferencia de aplicaciones tradicionales, este sistema fue diseñado bajo una arquitectura desacoplada, donde frontend, backend y base de datos operan como componentes independientes conectados mediante servicios cloud.
+El sistema permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos relacional, garantizando la integridad de la información, la disponibilidad del servicio, y la seguridad.
+
+Dado que no es una aplicación tradicional, el sistema ha sido diseñado bajo una arquitectura desacoplada, en la que frontend, backend, y la base de datos actúan como entidades independientes, conectadas por servicios cloud.
 
 ---
 
@@ -130,7 +132,7 @@ Estos servicios permiten eliminar la necesidad de administrar infraestructura f�
 
 ---
 
-## 9. Instalación Local (Explicada)
+## 9. Instalación Local 
 
 Para ejecutar el proyecto localmente, se deben seguir los siguientes pasos:
 
@@ -171,7 +173,7 @@ en cualquier navegador.
 
 ---
 
-## 10. Proceso de Despliegue en la Nube (Explicación Completa)
+## 10. Proceso de Despliegue en la Nube 
 
 El despliegue del sistema se realizó utilizando Google Cloud Platform bajo un enfoque de integración continua, permitiendo automatizar la construcción y ejecución del backend a partir del repositorio en GitHub.
 
@@ -219,7 +221,7 @@ Este archivo define:
 
 Esto permite que la aplicación se ejecute en un entorno aislado y reproducible.
 
-### 4. Integración con GitHub (CI/CD)
+### 4. Integración con GitHub 
 
 El repositorio del proyecto fue conectado directamente con Google Cloud mediante Developer Connect, lo que permitió:
 
@@ -242,7 +244,7 @@ Este archivo define los pasos de construcción del contenedor, incluyendo:
 
 ### 5. Activador de despliegue (Trigger)
 
-Se configuró un activador (trigger) que permite que cada vez que se realiza un `git push` al repositorio:
+Se configuró un activador trigger que permite que cada vez que se realiza un `git push` al repositorio:
 
 * Se dispare automáticamente el proceso de build
 * Se reconstruya el contenedor
