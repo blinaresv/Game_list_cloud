@@ -4,7 +4,7 @@ INSERT INTO categoria (nombre) VALUES
 ('RPG'),
 ('Deportes');
 
-INSERT INTO videojuego (titulo, plataforma, anio, categoria_id) VALUES
-('The Witcher 3', 'PC', 2015, 3),
-('FIFA 23', 'PS5', 2023, 4),
-('Halo Infinite', 'Xbox', 2021, 1);
+INSERT INTO videojuego (titulo, plataforma, anio, estado, categoria_id) VALUES
+('The Witcher 3', 'PC', 2015, 'TERMINADO', 3),
+('FIFA 23', 'PS5', 2023, 'JUGANDO', 4),
+('Halo Infinite', 'Xbox', 2021, 'PENDIENTE', 1);
